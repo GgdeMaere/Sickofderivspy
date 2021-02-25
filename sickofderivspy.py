@@ -2,6 +2,12 @@ import numpy as np
 
 
 def errorize(array, pos_error=0, neg_error=0):
+    """
+    Turns a list or array into a numpy array of ErrorFloats.
+    :param array: Array to errorify
+    :param pos_error: Upper error
+    :param neg_error: Lower error
+    """
     new_array = []
     for element in array:
         if type(element) is not ErrorFloat:
@@ -11,6 +17,9 @@ def errorize(array, pos_error=0, neg_error=0):
 
 
 def values(array):
+    """
+    Returns a numpy array containing the values of the ErrorFloats in the given array
+    """
     new_array = []
     for element in array:
         if type(element) is not ErrorFloat:
@@ -20,6 +29,9 @@ def values(array):
 
 
 def pos_errors(array):
+    """
+    Returns a numpy array containing the upper errors of the ErrorFloats in the given array
+    """
     new_array = []
     for element in array:
         if type(element) is not ErrorFloat:
@@ -29,6 +41,9 @@ def pos_errors(array):
 
 
 def neg_errors(array):
+    """
+    Returns a numpy array containing the lower errors of the ErrorFloats in the given array
+    """
     new_array = []
     for element in array:
         if type(element) is not ErrorFloat:
@@ -39,6 +54,11 @@ def neg_errors(array):
 
 class ErrorFloat:
     def __init__(self, value, pos_error=0, neg_error=0):
+        """
+        Creates an ErrorFloat
+        :param pos_error: Upper error on the value
+        :param neg_error: Lower error on the value
+        """
         self.value = value
         self.pos_e = pos_error
         self.neg_e = neg_error
